@@ -7,7 +7,8 @@ module.exports = {
     entry: './src/js/index.js',
     output: {
       filename: 'bundle.js',
-      path: path.resolve(__dirname, 'build')
+      publicPath: '/',
+      path: path.resolve(__dirname,'build')
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -21,7 +22,8 @@ module.exports = {
     devtool: 'source-map',
     devServer: {
       contentBase: "./build",
-      port: 3000
+      port: 3000, 
+      historyApiFallback: true
     },
     module: {
       rules: [

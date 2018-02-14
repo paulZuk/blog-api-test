@@ -4,8 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './reducers/index';
 import promise from 'redux-promise';
-import { BrowserRouter, Route } from 'react-router-dom';
-import PostIndex from './components/PostIndex';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PostIndex from './components/PostIndex.js';
+import PostNew from './components/PostNew.js';
 
 
 const store = createStore(
@@ -16,9 +17,10 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store} >
         <BrowserRouter>
-            <div>
-                <Route path="/" component={PostIndex} />
-            </div>
+            <Switch>
+                <Route exact path="/" component={PostIndex} />
+                <Route path="/posts/new" component={PostNew} />
+            </Switch>
         </BrowserRouter>
     </Provider>,    
 
