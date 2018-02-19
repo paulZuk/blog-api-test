@@ -56,6 +56,12 @@ class PostNew extends Component {
                     label="Categories"
                     component={this.renderField}
                 />
+                <Field 
+                    name="content" 
+                    label="Content"
+                    component={this.renderField}
+                />
+
                 <button className="btn btn-primary">Submit</button>
                 <Link to="/" style={{marginLeft: '10px'}} className="btn btn-danger">Cancel</Link>
             </form>
@@ -74,6 +80,9 @@ function validate(values) {
     }
     if(!values.tags) {
         errors.tags = "Enter some tag please!";
+    }
+    if(!values.content) {
+        errors.content = "Enter some content of post "
     }
 
     return errors;
